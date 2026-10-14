@@ -1,0 +1,341 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top, #172554, #020617 55%);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+}
+
+.app {
+    width: min(1100px, 100%);
+    margin: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.tag {
+    color: #38bdf8;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+h1 {
+    font-size: clamp(30px, 6vw, 55px);
+    margin: 5px 0;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    color: #94a3b8;
+}
+
+.icon-btn {
+    width: 48px;
+    height: 48px;
+    border: 1px solid #334155;
+    background: #0f172a;
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.top-panel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.stat {
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid #1e293b;
+    border-radius: 15px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.stat > span {
+    font-size: 24px;
+}
+
+.stat small {
+    display: block;
+    color: #64748b;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.stat b {
+    font-size: 18px;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+button,
+select {
+    border: 1px solid #334155;
+    background: #0f172a;
+    color: white;
+    border-radius: 10px;
+    padding: 11px 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover,
+select:hover {
+    border-color: #38bdf8;
+    transform: translateY(-1px);
+}
+
+#newMaze {
+    background: #2563eb;
+}
+
+#hintBtn {
+    background: #7c3aed;
+}
+
+#solveBtn {
+    background: #059669;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 20px;
+    align-items: start;
+}
+
+.maze-card {
+    background: #020617;
+    border: 1px solid #1e293b;
+    border-radius: 18px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+}
+
+#maze {
+    display: grid;
+    width: min(620px, 100%);
+    aspect-ratio: 1;
+    gap: 2px;
+    background: #334155;
+    border: 4px solid #334155;
+}
+
+.cell {
+    background: #f8fafc;
+    position: relative;
+    min-width: 0;
+    min-height: 0;
+}
+
+.wall {
+    background: #020617;
+}
+
+.start {
+    background: #22c55e !important;
+}
+
+.end {
+    background: #ef4444 !important;
+}
+
+.player {
+    background: #38bdf8 !important;
+}
+
+.player::after {
+    content: "●";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 65%;
+}
+
+.path {
+    background: #facc15 !important;
+    animation: pathGlow 0.5s infinite alternate;
+}
+
+.hint {
+    background: #a855f7 !important;
+    animation: hintPulse 0.6s infinite alternate;
+}
+
+@keyframes pathGlow {
+    from {
+        opacity: 0.55;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes hintPulse {
+    from {
+        transform: scale(0.8);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.instructions {
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid #1e293b;
+    border-radius: 18px;
+    padding: 20px;
+}
+
+.instructions h2 {
+    margin-bottom: 18px;
+}
+
+.instructions p {
+    color: #cbd5e1;
+    margin: 13px 0;
+    line-height: 1.5;
+}
+
+.message {
+    text-align: center;
+    margin-top: 18px;
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    padding: 13px;
+    border-radius: 12px;
+    color: #cbd5e1;
+}
+
+.mobile-controls {
+    display: none;
+    text-align: center;
+    margin-top: 18px;
+}
+
+.mobile-controls button {
+    width: 55px;
+    height: 48px;
+    margin: 3px;
+    font-size: 20px;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 100;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal-box {
+    width: min(430px, 100%);
+    text-align: center;
+    padding: 40px 25px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 25px;
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6);
+}
+
+.trophy {
+    font-size: 65px;
+    margin-bottom: 10px;
+}
+
+.modal-box h2 {
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.modal-box p {
+    color: #cbd5e1;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+#playAgain {
+    background: #2563eb;
+    padding: 13px 25px;
+}
+
+@media (max-width: 800px) {
+
+    body {
+        padding: 12px;
+    }
+
+    .top-panel {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    .instructions {
+        order: 2;
+    }
+
+    .mobile-controls {
+        display: block;
+    }
+}
+
+@media (max-width: 500px) {
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+    }
+
+    .maze-card {
+        padding: 8px;
+    }
+
+    .controls button,
+    .controls select {
+        flex: 1;
+    }
+}
