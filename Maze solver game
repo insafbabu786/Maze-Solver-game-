@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Maze Master</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <header>
+        <div>
+            <p class="tag">BCA PROJECT</p>
+            <h1>🧩 MAZE MASTER</h1>
+            <p class="subtitle">Find the shortest path. Escape the maze.</p>
+        </div>
+
+        <button id="soundBtn" class="icon-btn">🔊</button>
+    </header>
+
+    <section class="top-panel">
+
+        <div class="stat">
+            <span>⏱️</span>
+            <div>
+                <small>TIME</small>
+                <b id="timer">00:00</b>
+            </div>
+        </div>
+
+        <div class="stat">
+            <span>👣</span>
+            <div>
+                <small>MOVES</small>
+                <b id="moves">0</b>
+            </div>
+        </div>
+
+        <div class="stat">
+            <span>❤️</span>
+            <div>
+                <small>LIVES</small>
+                <b id="lives">3</b>
+            </div>
+        </div>
+
+        <div class="stat">
+            <span>🏆</span>
+            <div>
+                <small>LEVEL</small>
+                <b id="levelText">EASY</b>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="controls">
+
+        <select id="difficulty">
+            <option value="easy">🟢 Easy</option>
+            <option value="medium">🟡 Medium</option>
+            <option value="hard">🔴 Hard</option>
+        </select>
+
+        <button id="newMaze">🔄 New Maze</button>
+
+        <button id="hintBtn">💡 Hint</button>
+
+        <button id="solveBtn">🧭 Solve</button>
+
+    </div>
+
+    <main>
+
+        <div class="maze-card">
+
+            <div id="maze"></div>
+
+        </div>
+
+        <div class="instructions">
+
+            <h2>🎮 How To Play</h2>
+
+            <p>
+                🟢 Start from the green cell.
+            </p>
+
+            <p>
+                🔴 Reach the red cell to win.
+            </p>
+
+            <p>
+                ⬛ Black blocks are walls.
+            </p>
+
+            <p>
+                🔵 Move using Arrow Keys or WASD.
+            </p>
+
+            <p>
+                💡 Use Hint to see one step of the shortest path.
+            </p>
+
+            <p>
+                🧭 Solve shows the complete shortest path.
+            </p>
+
+        </div>
+
+    </main>
+
+    <div class="mobile-controls">
+
+        <button data-key="ArrowUp">⬆️</button>
+
+        <div>
+            <button data-key="ArrowLeft">⬅️</button>
+            <button data-key="ArrowDown">⬇️</button>
+            <button data-key="ArrowRight">➡️</button>
+        </div>
+
+    </div>
+
+    <div id="message" class="message">
+        🎮 Reach the red destination!
+    </div>
+
+</div>
+
+<div id="winModal" class="modal hidden">
+
+    <div class="modal-box">
+
+        <div class="trophy">🏆</div>
+
+        <h2>MAZE COMPLETED!</h2>
+
+        <p id="winText"></p>
+
+        <button id="playAgain">🚀 Play Again</button>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
